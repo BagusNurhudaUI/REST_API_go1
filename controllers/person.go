@@ -14,7 +14,7 @@ func (idb *InDB) GetPerson(c *gin.Context) {
 	)
 
 	id := c.Param("id")
-	err := idb.DB.where("id =?", id).First(&person).Error
+	err := idb.DB.Where("id =?", id).First(&person).Error
 	if err != nil {
 		result = gin.H{
 			"result": err.Error(),

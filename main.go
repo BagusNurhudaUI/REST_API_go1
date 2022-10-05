@@ -2,15 +2,18 @@ package main
 
 import (
 	"build-api-go/config"
+	"build-api-go/controllers"
+	"fmt"
+
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	config.DBInit()
-	// db := config.DBInit()
-	// fmt.Println(db)
-	// inDB := &controllers.InDB{DB: db}
+	db := config.DBInit()
+	fmt.Println(db)
+	inDB := controllers.New(db)
 
-	// router := gin.Default()
+	router := gin.Default()
 
-	// router.GET("/person/:id", inDB.GetPerson)
+	router.GET("/person/:id", inDB.GetPerson)
 }
