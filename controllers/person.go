@@ -58,11 +58,11 @@ func (db *InDB) CreatePerson(c *gin.Context) {
 		result gin.H
 	)
 
-	firstName := c.PostForm("first_name")
-	lastName := c.PostForm("last_name")
+	first_name := c.PostForm("first_name")
+	last_name := c.PostForm("last_name")
 
-	person.FirstName = firstName
-	person.LastName = lastName
+	person.First_Name = first_name
+	person.Last_Name = last_name
 
 	db.DB.Create(&person)
 
@@ -92,8 +92,8 @@ func (db *InDB) UpdatePerson(c *gin.Context) {
 		}
 	}
 
-	newPerson.FirstName = firstName
-	newPerson.LastName = lastName
+	newPerson.First_Name = firstName
+	newPerson.Last_Name = lastName
 
 	err = db.DB.Model(&person).Updates(newPerson).Error
 
